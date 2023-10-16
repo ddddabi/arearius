@@ -1,12 +1,20 @@
 package com.example.arearius
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.FeatureInfo
+import android.content.pm.PackageInfo
 import android.os.Bundle
-import com.example.arearius.data.App
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.arearius.data.AppData
 import com.example.arearius.databinding.ActivityListDetailBinding
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class ListDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListDetailBinding
+    private lateinit var PI: PackageInfo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_list_detail)
@@ -14,14 +22,60 @@ class ListDetailActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        // appInfo를 serializable로 받는다
-        // 그냥 받은 채로 변수에 넣으면 오류가 나는데 이 때 Casting을 해줘야 한다
-        val item = intent.getSerializableExtra("roomInfo") as App
+        val appData = applicationContext as AppData
+        PI = appData.packageInfo
 
-        // activity_room_detail.xml에 설정했던 view에 따라 매핑
-        binding.nameTxt.text = "${item.appName}"
-        binding.idTxt.text = item.appId
-        binding.packageTxt.text = item.appPackageName
-        binding.versionTxt.text = item.appVersion
+        setValues()
+
+    }
+
+    private fun setValues() {
+        // APP name
+        binding.applabel.text = packageManager.getApplicationLabel(PI.applicationInfo)
+
+        // package name
+        binding.packageName.text = PI.packageName
+
+        // version name
+        binding.version.text = PI.versionName
+
+        // target version
+        binding.andVersion.text = PI.applicationInfo.targetSdkVersion.toString()
+
+        // path
+        binding.path.text = PI.applicationInfo.sourceDir
+
+        // first installation
+        binding.installed.text = setDateFormat(PI.firstInstallTime)
+
+        // last modified
+        binding.lastModify.text = setDateFormat(PI.lastUpdateTime)
+
+        // features
+        if (PI.reqFeatures != null)
+            binding.features.text = getFeatures(PI.reqFeatures)
+        else
+            binding.features.text = "-"
+
+        // uses-permission
+        if (PI.requestedPermissions != null)
+            binding.permissions.text = getPermissions(PI.requestedPermissions)
+        else
+            binding.permissions.text = "-"
+    }
+    private fun setDateFormat(time: Long): String {
+        val date = Date(time)
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
+        return formatter.format(date)
+    }
+
+    // Convert string array to comma separated string
+    private fun getPermissions(requestedPermissions: Array<String>?): String {
+        return requestedPermissions?.joinToString(",\n") ?: ""
+    }
+
+    // Convert string array to comma separated string
+    private fun getFeatures(reqFeatures: Array<FeatureInfo>?): String {
+        return reqFeatures?.joinToString(",\n") ?: ""
     }
 }
