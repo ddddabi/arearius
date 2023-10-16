@@ -1,4 +1,4 @@
-package com.example.arearius
+package com.example.arearius.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.arearius.R
+import com.example.arearius.item
 
 class MainListAdapter (val context: Context, val itemlist : ArrayList<item>) : BaseAdapter() {
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {

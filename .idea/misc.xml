@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/arearius_android/app/src/main/res/layout/activity_app_all_list.xml" value="0.1" />
+        <entry key="..\:/arearius_android/app/src/main/res/layout/activity_list_detail.xml" value="0.22" />
         <entry key="..\:/arearius_android/app/src/main/res/layout/activity_main.xml" value="0.16286727456940223" />
         <entry key="..\:/arearius_android/app/src/main/res/layout/main_lv_item.xml" value="0.1" />
       </map>
