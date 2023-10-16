@@ -19,9 +19,7 @@ public class ApkAdapter extends BaseAdapter {
     Activity context;
     PackageManager packageManager;
 
-    public ApkAdapter(Activity context, List<PackageInfo> packageList,
-                      PackageManager packageManager) {
-        super();
+    public ApkAdapter(Activity context, List<PackageInfo> packageList, PackageManager packageManager) {
         this.context = context;
         this.packageList = packageList;
         this.packageManager = packageManager;
