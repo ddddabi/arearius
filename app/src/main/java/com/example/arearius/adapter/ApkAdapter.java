@@ -56,13 +56,11 @@ public class ApkAdapter extends BaseAdapter {
         }
 
         PackageInfo packageInfo = (PackageInfo) getItem(position);
-        Drawable appIcon = packageManager
-                .getApplicationIcon(packageInfo.applicationInfo);
-        String appName = packageManager.getApplicationLabel(
-                packageInfo.applicationInfo).toString();
-        appIcon.setBounds(0, 0, 40, 40);
+        Drawable appIcon = packageManager.getApplicationIcon(packageInfo.applicationInfo);
+        String appName = packageManager.getApplicationLabel(packageInfo.applicationInfo).toString();
+        appIcon.setBounds(0, 0, 80, 80);
         holder.apkName.setCompoundDrawables(appIcon, null, null, null);
-        holder.apkName.setCompoundDrawablePadding(15);
+        holder.apkName.setCompoundDrawablePadding(50);
         holder.apkName.setText(appName);
 
         return convertView;

@@ -37,31 +37,31 @@ class ListDetailActivity : AppCompatActivity() {
         binding.packageName.text = PI.packageName
 
         // version name
-        binding.version.text = PI.versionName
+        binding.versionName.text = PI.versionName
 
         // target version
-        binding.andVersion.text = PI.applicationInfo.targetSdkVersion.toString()
+        binding.sdkversion.text = PI.applicationInfo.targetSdkVersion.toString()
 
         // path
         binding.path.text = PI.applicationInfo.sourceDir
 
         // first installation
-        binding.installed.text = setDateFormat(PI.firstInstallTime)
+        binding.insdate.text = setDateFormat(PI.firstInstallTime)
 
         // last modified
         binding.lastModify.text = setDateFormat(PI.lastUpdateTime)
 
         // features
         if (PI.reqFeatures != null)
-            binding.features.text = getFeatures(PI.reqFeatures)
+            binding.reqFeature.text = getFeatures(PI.reqFeatures)
         else
-            binding.features.text = "-"
+            binding.reqFeature.text = "-"
 
         // uses-permission
         if (PI.requestedPermissions != null)
-            binding.permissions.text = getPermissions(PI.requestedPermissions)
+            binding.reqPermission.text = getPermissions(PI.requestedPermissions)
         else
-            binding.permissions.text = "-"
+            binding.reqPermission.text = "-"
     }
     private fun setDateFormat(time: Long): String {
         val date = Date(time)
