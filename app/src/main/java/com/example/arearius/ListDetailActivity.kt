@@ -1,5 +1,6 @@
 package com.example.arearius
 
+import android.content.Intent
 import android.content.pm.FeatureInfo
 import android.content.pm.PackageInfo
 import android.os.Bundle
@@ -27,6 +28,11 @@ class ListDetailActivity : AppCompatActivity() {
 
         setValues()
 
+        // 버튼 클릭시 액티비티 이동
+        binding.btnApitest.setOnClickListener {
+            val intent = Intent(this, RestApiActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setValues() {
