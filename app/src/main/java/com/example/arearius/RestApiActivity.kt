@@ -3,13 +3,16 @@ package com.example.arearius
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ListAdapter
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.arearius.adapter.MyAdapter
-import com.example.arearius.data.ApiData
+import com.example.arearius.data.AnalysisData
 import com.example.arearius.databinding.ActivityRestApiBinding
 import com.example.arearius.interfaces.DataApiService
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,14 +23,18 @@ class RestApiActivity : AppCompatActivity() {
 
     // 객체 생성
     val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.upbit.com/")
+        .baseUrl("https://www.virustotal.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val dataApiService = retrofit.create(DataApiService::class.java)
+    // 수정 필요 -> SHA256 값
+    val urlId = "6a850be56515cfc1ffbcc365ff650e601a737353dd267d43713ae7583019721a"
+    val myapiKey = "71dc70f9b22a6069d44e4481072fcb5b210ed428d67ae915da4668d06ce77a52"
+    val URLPostresponse = dataApiService.postData(urlId, myapiKey)
 
     private lateinit var binding: ActivityRestApiBinding
     lateinit var listAdapter: MyAdapter
-    var coinList = listOf<ApiData>()
+    var coinList = listOf<AnalysisData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +44,8 @@ class RestApiActivity : AppCompatActivity() {
 
         binding.btnApi.setOnClickListener {
             initList()
+            //Thread.sleep(30000) // 1분 대기 60000
+            Toast.makeText(applicationContext, "스캔 시작 1분 대기", Toast.LENGTH_LONG).show()
         }
 
         binding.recycler01.apply {
@@ -49,28 +58,31 @@ class RestApiActivity : AppCompatActivity() {
     }
 
     private fun initList() {
-        dataApiService.getCoinAll()
-            .enqueue(object: Callback<List<ApiData>>{
-                override fun onResponse(
-                    call: Call<List<ApiData>>,
-                    response: Response<List<ApiData>>
-                ) {
-                    if (response.isSuccessful){
-                        response.body()?.let {
-                            Log.d("OK", it.toString())
-                            coinList = it // 성공한 경우 coinList 업데이트
-                            listAdapter.setList(coinList)
-                        }
-                    }else {
-                        Log.d("ERROR", response.toString())
-                        Toast.makeText(applicationContext, "API 호출 실패", Toast.LENGTH_LONG).show()
+        URLPostresponse.enqueue(object : Callback<AnalysisData> {
+            override fun onResponse(call: Call<AnalysisData>, response: Response<AnalysisData>) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        Log.d("OK", it.toString())
+                        val result = response.body()?.toString()
+                        Log.d("OK", result.toString())
+                        coinList = listOf(it) // 성공한 경우 coinList 업데이트
+                        listAdapter.setList(coinList)
                     }
+                } else {
+                    Log.d("ERROR", response.toString())
+                    Toast.makeText(applicationContext, "API 호출 실패", Toast.LENGTH_LONG).show()
                 }
+            }
 
-                override fun onFailure(call: Call<List<ApiData>>, t: Throwable) {
-                    Log.d("ERROR",t.toString())
-                    Toast.makeText(applicationContext, t.toString(),Toast.LENGTH_LONG).show()
-                }
-            })
+            override fun onFailure(call: Call<AnalysisData>, t: Throwable) {
+                Log.d("ERROR", t.toString())
+                Toast.makeText(applicationContext, "API 호출 실패2", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_LONG).show()
+            }
+
+
+        })
     }
 }
+
+
