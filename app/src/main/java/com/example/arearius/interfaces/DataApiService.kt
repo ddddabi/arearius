@@ -1,15 +1,15 @@
 package com.example.arearius.interfaces
 
 import retrofit2.Call
-import com.example.arearius.data.AnalysisData
-import okhttp3.RequestBody
+import com.example.arearius.data.FileAnalysisData
 import retrofit2.http.*
 
-interface DataApiService {
-    // Get a URL analysis report
-    @GET("api/v3/urls/{urlId}")
+
+interface FileApiService{
+    // Get a file report
+    @GET("api/v3/files/{id}")
     fun postData(
-        @Path("urlId") urlId: String,
+        @Path("id") fileId: String,
         @Header("x-apikey") apiKey: String
-    ): Call<AnalysisData>
+    ): Call<FileAnalysisData>
 }

@@ -6,13 +6,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.arearius.adapter.MyAdapter
-import com.example.arearius.data.AnalysisData
+import com.example.arearius.data.FileAnalysisData
 import com.example.arearius.databinding.ActivityRestApiBinding
-import com.example.arearius.interfaces.DataApiService
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.OkHttpClient
-import okhttp3.RequestBody
+import com.example.arearius.interfaces.FileApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,15 +22,18 @@ class RestApiActivity : AppCompatActivity() {
         .baseUrl("https://www.virustotal.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    val dataApiService = retrofit.create(DataApiService::class.java)
+
+    val fileApiService = retrofit.create(FileApiService::class.java)
     // 수정 필요 -> SHA256 값
-    val urlId = "6a850be56515cfc1ffbcc365ff650e601a737353dd267d43713ae7583019721a"
+    val id = "7e876b68b2daab2eb3641d348de32f15"
     val myapiKey = "71dc70f9b22a6069d44e4481072fcb5b210ed428d67ae915da4668d06ce77a52"
-    val URLPostresponse = dataApiService.postData(urlId, myapiKey)
+
+    // ApiData.kt 연결
+    val FilePostresponse = fileApiService.postData(id,myapiKey)
 
     private lateinit var binding: ActivityRestApiBinding
     lateinit var listAdapter: MyAdapter
-    var coinList = listOf<AnalysisData>()
+    var fileList = listOf<FileAnalysisData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +42,7 @@ class RestApiActivity : AppCompatActivity() {
         listAdapter = MyAdapter()
 
         binding.btnApi.setOnClickListener {
-            initList()
+            fileInitList()
             //Thread.sleep(30000) // 1분 대기 60000
             Toast.makeText(applicationContext, "스캔 시작 1분 대기", Toast.LENGTH_LONG).show()
         }
@@ -53,20 +52,16 @@ class RestApiActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
-        // API 데이터 초기 로딩
-        initList()
     }
 
-    private fun initList() {
-        URLPostresponse.enqueue(object : Callback<AnalysisData> {
-            override fun onResponse(call: Call<AnalysisData>, response: Response<AnalysisData>) {
+    private fun fileInitList() {
+        FilePostresponse.enqueue(object : Callback<FileAnalysisData> {
+            override fun onResponse(call: Call<FileAnalysisData>, response: Response<FileAnalysisData>) {
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        Log.d("OK", it.toString())
-                        val result = response.body()?.toString()
-                        Log.d("OK", result.toString())
-                        coinList = listOf(it) // 성공한 경우 coinList 업데이트
-                        listAdapter.setList(coinList)
+                    response.body()?.let { data ->
+                        Log.d("OK", data.toString())
+                        fileList = listOf(data) // 성공한 경우 fileList 업데이트
+                        listAdapter.setList(fileList)
                     }
                 } else {
                     Log.d("ERROR", response.toString())
@@ -74,15 +69,16 @@ class RestApiActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<AnalysisData>, t: Throwable) {
+            override fun onFailure(call: Call<FileAnalysisData>, t: Throwable) {
                 Log.d("ERROR", t.toString())
                 Toast.makeText(applicationContext, "API 호출 실패2", Toast.LENGTH_LONG).show()
                 Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_LONG).show()
             }
-
-
         })
     }
 }
+
+
+
 
 

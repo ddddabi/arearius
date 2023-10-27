@@ -1,16 +1,13 @@
 package com.example.arearius
 
-import android.R
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arearius.adapter.ApkAdapter
 import com.example.arearius.data.AppData
