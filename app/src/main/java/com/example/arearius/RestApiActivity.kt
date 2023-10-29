@@ -39,17 +39,21 @@ class RestApiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRestApiBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // 어댑터 초기화
         listAdapter = MyAdapter()
 
-        binding.btnApi.setOnClickListener {
-            fileInitList()
-            //Thread.sleep(30000) // 1분 대기 60000
-            Toast.makeText(applicationContext, "스캔 시작 1분 대기", Toast.LENGTH_LONG).show()
-        }
+        /*binding.recycler01.layoutManager = LinearLayoutManager(this)
+        binding.recycler01.adapter = listAdapter // RecyclerView에 어댑터 설정*/
+        fileInitList()
+        //Thread.sleep(30000) // 1분 대기 60000
+        Toast.makeText(applicationContext, "스캔 시작 1분 대기", Toast.LENGTH_LONG).show()
+
 
         binding.recycler01.apply {
-            adapter = listAdapter
-            layoutManager = LinearLayoutManager(context)
+            binding.recycler01.layoutManager = LinearLayoutManager(context)
+            binding.recycler01.adapter = listAdapter // RecyclerView에 어댑터 설정
+            //adapter = listAdapter
+            //layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
     }

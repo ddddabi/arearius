@@ -36,11 +36,8 @@ class AppAllListActivity : AppCompatActivity(), AdapterView.OnItemClickListener 
                 packageList1.add(pi)
             }
         }
-
         binding.applist.adapter = ApkAdapter(this, packageList, packageManager)
-
         binding.applist.setOnItemClickListener(this)
-
     }
 
     private fun isSystemPackage(pkgInfo: PackageInfo): Boolean {

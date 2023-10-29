@@ -1,32 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingVertical="10dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--상단 고정-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="api 정보"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/text01"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/apk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/apkname"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/apkLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apk"
+            android:paddingLeft="24dp" />
+
+        <TextView
+            android:id="@+id/pack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apkLabel"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/package_name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/packLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pack"
+            android:paddingLeft="24dp" />
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/packLabel"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="15dp"
+            android:text="Size:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/sizeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/size"
+            android:paddingLeft="24dp" />
+
+        <TextView
+            android:id="@+id/md5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sizeLabel"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="15dp"
+            android:text="MD5:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/md5Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/md5"
+            android:paddingLeft="24dp" />
+
+        <TextView
+            android:id="@+id/permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/md5Label"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/permissions"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/permissionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/permission"
+            android:paddingLeft="24dp" />
+
+        <TextView
+            android:id="@+id/path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/permissionLabel"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="18dp"
+            android:text="@string/path_info"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pathLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/path"
+            android:paddingLeft="24dp" />
+
+        <TextView
+            android:id="@+id/analysis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pathLabel"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="15dp"
+            android:text="last_analysis_stats:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/analysisLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/analysis"
+            android:paddingLeft="24dp" />
+
+        <TextView
+            android:id="@+id/submission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/analysisLabel"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="15dp"
+            android:text="last_submission_date:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/submissionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/submission"
+            android:paddingLeft="24dp" />
+    </RelativeLayout>
+
+    <!--하단 고정-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="sample01"
-        android:textSize="16sp" />
-    <TextView
-        android:id="@+id/text02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="sample02"
-        android:textSize="16sp"/>
-    <TextView
-        android:id="@+id/text03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="right"
-        android:text="sample03"
-        android:textSize="16sp"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_apitest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:text="api 검사" />
+
+        <Button
+            android:id="@+id/btn_sandboxtest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:text="격리 검사"  />
+
+    </LinearLayout>
 
 </LinearLayout>
