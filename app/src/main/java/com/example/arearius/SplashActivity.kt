@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         },DURATION)
-        //여기서 DURATION은 딜레이레이 시간을 의미, 딜레이 시간을 3000으로 지정함.
+        //여기서 DURATION은 딜레이 시간을 의미, 딜레이 시간을 3000으로 지정함.
     }
     companion object {
         private const val DURATION : Long = 3000 //런타임이 3000
