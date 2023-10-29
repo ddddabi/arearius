@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "563446328642",
+    "project_id": "arearius-3128a",
+    "storage_bucket": "arearius-3128a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563446328642:android:500c67c8a217ae2bdfacdb",
+        "android_client_info": {
+          "package_name": "com.example.arearius"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClWKSH6L73qxFGWt4iirVilZPT9suuwtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
