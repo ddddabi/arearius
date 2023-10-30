@@ -237,4 +237,3 @@ data class PermissionDetail(
 data class FileLinks(
     val self: String
 )
-

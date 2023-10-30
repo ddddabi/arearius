@@ -13,3 +13,4 @@ interface FileApiService{
         @Header("x-apikey") apiKey: String
     ): Call<FileAnalysisData>
 }
+

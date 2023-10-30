@@ -29,7 +29,7 @@ class ListDetailActivity : AppCompatActivity() {
         setValues()
 
         // 버튼 클릭시 액티비티 이동
-        binding.btnApitest.setOnClickListener {
+        binding.btntotal.setOnClickListener {
             val intent = Intent(this, RestApiActivity::class.java)
             startActivity(intent)
         }

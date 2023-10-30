@@ -191,20 +191,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_apitest"
+            android:id="@+id/btntotal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="api 검사" />
+            android:text="바이러스토탈 검사" />
 
         <Button
-            android:id="@+id/btn_sandboxtest"
+            android:id="@+id/btnMobsf"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="격리 검사"  />
+            android:text="MobSF 검사"  />
 
     </LinearLayout>
 </LinearLayout>

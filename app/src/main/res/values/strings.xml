@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">arearius</string>
+    <string name="app_name">Arearius</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_apk_list">AppList Demo</string>

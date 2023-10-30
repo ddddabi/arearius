@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Arearius">
         <activity
+            android:name=".MobsfApiActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
