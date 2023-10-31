@@ -2,16 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
     <!--상단 고정-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="api 정보"
-        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="바이러스토탈 결과"
         android:textColor="@color/black"
-        android:gravity="center"/>
+        android:textSize="15sp" />
+
 
     <!--스크롤-->
     <RelativeLayout
@@ -169,7 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="api 검사" />
+            android:text="btn" />
 
         <Button
             android:id="@+id/btn_sandboxtest"
@@ -177,7 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="격리 검사"  />
+            android:text="btn"  />
 
     </LinearLayout>
 

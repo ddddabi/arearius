@@ -5,5 +5,7 @@
         android:id="@+id/toolbar_info"
         app:showAsAction="always"
         android:icon="@drawable/baseline_menu_24"
-        android:title="@string/app_name" />
+        android:title="@string/app_name"
+        />
+
 </menu>
