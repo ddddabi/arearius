@@ -96,13 +96,13 @@ class RestApiActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> { //뒤로 가기 버튼
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, ListDetailActivity::class.java)
                 startActivity(intent)
             }
             R.id.toolbar_info -> {// 툴팁
                 // 메뉴 창으로 가도록
                 //다음화면으로 이동하기 위한 인텐트 객체 생성
-                val intent = Intent(this, ListDetailActivity::class.java)
+                val intent = Intent(this, MainMenuActivity::class.java)
                 startActivity(intent)   //intent에 저장되어 있는 엑티비티 쪽으로 이동한다
             }
         }
