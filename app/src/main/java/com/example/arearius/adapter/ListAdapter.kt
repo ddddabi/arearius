@@ -18,9 +18,13 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
             binding.sizeLabel.text = fileanalysisData.data.attributes.size.toString()
             binding.permissionLabel.text = fileanalysisData.data.attributes.androguard.permissionDetails.toString()
             binding.md5Label.text = fileanalysisData.data.attributes.md5
-            binding.analysisLabel.text = fileanalysisData.data.attributes.lastAnalysisDate.toString()
-            binding.submissionLabel.text = fileanalysisData.data.attributes.lastSubmissionDate.toString()
-
+            binding.analysisLabel.text = formatDate(fileanalysisData.data.attributes.lastAnalysisDate)
+            binding.submissionLabel.text = formatDate(fileanalysisData.data.attributes.lastSubmissionDate)
+        }
+        private fun formatDate(date: Long): String {
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val parsedDate = simpleDateFormat.parse(date.toString())
+            return parsedDate?.let { simpleDateFormat.format(it) } ?: ""
         }
     }
 
@@ -32,6 +36,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // 해당 위치의 데이터로 bind 메서드 호출
         holder.bind(fileList[position])
+
     }
 
     override fun getItemCount(): Int {
