@@ -9,34 +9,24 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
-    private var fileList = listOf<FileAnalysisData>()
+    private var fileList: List<FileAnalysisData> = emptyList()
 
-    inner class MyViewHolder(private val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(fileanalysisData : FileAnalysisData){
-            binding.apkLabel.text = fileanalysisData.data.attributes.meaningfulName
-            binding.packLabel.text = fileanalysisData.data.attributes.androguard.Package
-            binding.sizeLabel.text = fileanalysisData.data.attributes.size.toString()
-            binding.permissionLabel.text = fileanalysisData.data.attributes.androguard.permissionDetails.toString()
-            binding.md5Label.text = fileanalysisData.data.attributes.md5
-            binding.analysisLabel.text = formatDate(fileanalysisData.data.attributes.lastAnalysisDate)
-            binding.submissionLabel.text = formatDate(fileanalysisData.data.attributes.lastSubmissionDate)
-        }
-        private fun formatDate(date: Long): String {
-            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-            val parsedDate = simpleDateFormat.parse(date.toString())
-            return parsedDate?.let { simpleDateFormat.format(it) } ?: ""
-        }
-    }
+    inner class MyViewHolder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(view)
+        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        // 해당 위치의 데이터로 bind 메서드 호출
-        holder.bind(fileList[position])
-
+        val currentData = fileList[position]
+        holder.binding.apkLabel.text = currentData.data.attributes.meaningfulName
+        holder.binding.packLabel.text = currentData.data.attributes.androguard.Package
+        holder.binding.sizeLabel.text = currentData.data.attributes.size.toString()
+        holder.binding.permissionLabel.text = currentData.data.attributes.androguard.permissionDetails.toString()
+        holder.binding.md5Label.text = currentData.data.attributes.md5
+        holder.binding.analysisLabel.text = formatDate(currentData.data.attributes.lastAnalysisDate)
+        holder.binding.submissionLabel.text = formatDate(currentData.data.attributes.lastSubmissionDate)
     }
 
     override fun getItemCount(): Int {
@@ -45,7 +35,13 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     fun setList(list: List<FileAnalysisData>) {
         fileList = list
-        notifyDataSetChanged() // 데이터가 변경될 때 RecyclerView에 알리도록 추가
+        notifyDataSetChanged()
+    }
+
+    private fun formatDate(date: Long): String {
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val parsedDate = Date(date)
+        return simpleDateFormat.format(parsedDate)
     }
 }
 
