@@ -1,11 +1,14 @@
 package com.example.arearius
 
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.content.pm.FeatureInfo
 import android.content.pm.PackageInfo
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arearius.data.AppData
@@ -43,8 +46,13 @@ class ListDetailActivity : AppCompatActivity() {
     }
 
     private fun setValues() {
+
+        // 아이콘 설정
+        binding.appicon.setImageDrawable(packageManager.getApplicationIcon(packageManager.getApplicationInfo(PI.packageName, 0)))
+
         // APP name
         binding.applabel.text = packageManager.getApplicationLabel(PI.applicationInfo)
+        binding.appnametitle.text = packageManager.getApplicationLabel(PI.applicationInfo)
 
         // package name
         binding.packageName.text = PI.packageName
@@ -63,12 +71,6 @@ class ListDetailActivity : AppCompatActivity() {
 
         // last modified
         binding.lastModify.text = setDateFormat(PI.lastUpdateTime)
-
-        // features
-        if (PI.reqFeatures != null)
-            binding.reqFeature.text = getFeatures(PI.reqFeatures)
-        else
-            binding.reqFeature.text = "-"
 
         // uses-permission
         if (PI.requestedPermissions != null)

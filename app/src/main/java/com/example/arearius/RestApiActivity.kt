@@ -46,25 +46,40 @@ class RestApiActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)	//왼쪽 버튼 사용설정(기본은 뒤로가기)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.round_arrow_back_ios_new_24)	//왼쪽 버튼 메뉴로 아이콘 변경
         supportActionBar!!.setDisplayShowTitleEnabled(true)		//타이틀 보이게 설정
-        // 어댑터 초기화
-        listAdapter = MyAdapter()
 
-        /*binding.recycler01.layoutManager = LinearLayoutManager(this)
-        binding.recycler01.adapter = listAdapter // RecyclerView에 어댑터 설정*/
-        fileInitList()
+        //fileInitList()
         //Thread.sleep(30000) // 1분 대기 60000
         Toast.makeText(applicationContext, "스캔 시작 1분 대기", Toast.LENGTH_LONG).show()
 
+        // 어댑터 초기화
+        listAdapter = MyAdapter()
+        binding.recycler01.layoutManager = LinearLayoutManager(this)
+        binding.recycler01.adapter = listAdapter
 
-        binding.recycler01.apply {
-            binding.recycler01.layoutManager = LinearLayoutManager(context)
-            binding.recycler01.adapter = listAdapter // RecyclerView에 어댑터 설정
-            //adapter = listAdapter
-            //layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-        }
+        loadData() // 데이터를 불러오는 함수 호출
     }
+    private fun loadData() {
+        fileApiService.postData(id, myapiKey).enqueue(object : Callback<FileAnalysisData> {
+            override fun onResponse(call: Call<FileAnalysisData>, response: Response<FileAnalysisData>) {
+                if (response.isSuccessful) {
+                    response.body()?.let { data ->
+                        Log.d("OK", data.toString())
+                        fileList = listOf(data)
+                        listAdapter.setList(fileList)
+                    }
+                } else {
+                    Log.d("ERROR", response.toString())
+                    Toast.makeText(applicationContext, "API 호출 실패", Toast.LENGTH_LONG).show()
+                }
+            }
 
+            override fun onFailure(call: Call<FileAnalysisData>, t: Throwable) {
+                Log.d("ERROR", t.toString())
+                Toast.makeText(applicationContext, "API 호출 실패2", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_LONG).show()
+            }
+        })
+    }
     private fun fileInitList() {
         FilePostresponse.enqueue(object : Callback<FileAnalysisData> {
             override fun onResponse(call: Call<FileAnalysisData>, response: Response<FileAnalysisData>) {

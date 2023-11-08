@@ -20,10 +20,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="App 정보"
+        android:text="App info"
         android:textColor="@color/black"
         android:textSize="15sp"
+        android:fontFamily="@font/nanumgothicbold"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <ImageView
+        android:id="@+id/appicon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="13dp"
+        />
+    <TextView
+        android:id="@+id/appnametitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appicon"
+        android:fontFamily="@font/nanumgothicbold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:textSize="20sp"/>
 
     <!--스크롤 뷰-->
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -44,6 +62,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/apkname"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -51,6 +71,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/apk"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp" />
 
             <TextView
@@ -61,6 +83,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/package_name"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -68,6 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pack_name"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp" />
 
             <TextView
@@ -78,6 +104,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/version"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -85,33 +113,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/version"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp" />
 
-            <TextView
-                android:id="@+id/features"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/version_name"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="18dp"
-                android:text="@string/features"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/req_feature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/features"
-                android:paddingLeft="24dp" />
 
             <TextView
                 android:id="@+id/permissions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/req_feature"
+                android:layout_below="@+id/version_name"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/permissions"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -119,6 +135,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/permissions"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp" />
 
             <TextView
@@ -129,6 +147,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="18dp"
                 android:text="@string/path_info"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -136,6 +156,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/path_info"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp" />
 
             <TextView
@@ -146,6 +168,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/req_version"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -153,6 +177,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/and_version"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp" />
 
             <TextView
@@ -163,6 +189,8 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/installed"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -170,6 +198,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/installed"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp"  />
 
             <TextView
@@ -180,6 +210,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="18dp"
                 android:text="@string/modified"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -187,6 +219,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/modified"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
                 android:paddingLeft="24dp" />
         </RelativeLayout>
 
@@ -204,15 +238,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
+            android:background="@drawable/button_back"
+            android:fontFamily="@font/nanumgothicextrabold"
             android:text="바이러스토탈 검사" />
-
-        <Button
-            android:id="@+id/btnMobsf"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:text="MobSF 검사"  />
 
     </LinearLayout>
 </LinearLayout>

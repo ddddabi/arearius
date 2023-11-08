@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-    <!--상단 고정-->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="바이러스토탈 결과"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
-
-
-    <!--스크롤-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
 
         <TextView
             android:id="@+id/apk"
@@ -31,6 +13,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="24dp"
             android:text="@string/apkname"
+            android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
         <TextView
@@ -38,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/apk"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -48,6 +32,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:text="@string/package_name"
+            android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
         <TextView
@@ -55,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/pack"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -65,6 +51,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:text="Size:"
+            android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
         <TextView
@@ -72,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/size"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -81,6 +69,7 @@
             android:layout_below="@+id/sizeLabel"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/nanumgothic"
             android:text="MD5:"
             android:textStyle="bold" />
 
@@ -89,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/md5"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -99,6 +89,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:text="@string/permissions"
+            android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
         <TextView
@@ -106,6 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/permission"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -116,6 +108,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="18dp"
             android:text="@string/path_info"
+            android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
         <TextView
@@ -123,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/path"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -133,6 +127,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:text="last_analysis_stats:"
+            android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
         <TextView
@@ -140,6 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/analysis"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -150,6 +146,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:text="last_submission_date:"
+            android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
         <TextView
@@ -157,31 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/submission"
+            android:fontFamily="@font/nanumgothiclight"
             android:paddingLeft="24dp" />
-    </RelativeLayout>
-
-    <!--하단 고정-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_apitest"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:text="btn" />
-
-        <Button
-            android:id="@+id/btn_sandboxtest"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:text="btn"  />
-
-    </LinearLayout>
 
 </LinearLayout>

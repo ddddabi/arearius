@@ -42,7 +42,8 @@
                     android:textSize="17dp"
                     android:layout_margin="15dp"
                     android:text="검사하기"
-                    android:background="@drawable/shadow"/>
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:background="@drawable/button_back"/>
 
                 <Button
                     android:id="@+id/menu_two"
@@ -51,7 +52,8 @@
                     android:textSize="17dp"
                     android:layout_margin="15dp"
                     android:text="내 앱 목록"
-                    android:background="@drawable/shadow"/>
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:background="@drawable/button_back"/>
             </LinearLayout>
 
             <LinearLayout
@@ -67,7 +69,8 @@
                     android:textSize="17dp"
                     android:layout_margin="15dp"
                     android:text="마이페이지"
-                    android:background="@drawable/shadow"/>
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:background="@drawable/button_back"/>
 
                 <Button
 
@@ -77,7 +80,8 @@
                     android:textSize="17dp"
                     android:layout_margin="15dp"
                     android:text="설정"
-                    android:background="@drawable/shadow"/>
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:background="@drawable/button_back"/>
             </LinearLayout>
         </LinearLayout>
 

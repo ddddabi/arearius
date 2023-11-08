@@ -32,7 +32,7 @@ class AppAllListActivity : AppCompatActivity(), AdapterView.OnItemClickListener 
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.round_arrow_back_ios_new_24)	//왼쪽 버튼 메뉴로 아이콘 변경
         supportActionBar!!.setDisplayShowTitleEnabled(true)		//타이틀 보이게 설정
 
-        pm = getPackageManager()
+        pm = packageManager
         val packageList = packageManager.getInstalledPackages(PackageManager.GET_PERMISSIONS)
         val packageList1 = mutableListOf<PackageInfo>()
 
@@ -44,7 +44,7 @@ class AppAllListActivity : AppCompatActivity(), AdapterView.OnItemClickListener 
             }
         }
         binding.applist.adapter = ApkAdapter(this, packageList, packageManager)
-        binding.applist.setOnItemClickListener(this)
+        binding.applist.onItemClickListener = this
     }
 
     private fun isSystemPackage(pkgInfo: PackageInfo): Boolean {
@@ -58,7 +58,7 @@ class AppAllListActivity : AppCompatActivity(), AdapterView.OnItemClickListener 
         val appData = application as AppData
 
         // PackageInfo 설정
-        appData.setPackageInfo(packageInfo)
+        appData.packageInfo = packageInfo
 
         val appInfo = Intent(applicationContext, ListDetailActivity::class.java)
         startActivity(appInfo)
