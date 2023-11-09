@@ -17,6 +17,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import android.view.View
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class RestApiActivity : AppCompatActivity() {
 
@@ -27,12 +31,8 @@ class RestApiActivity : AppCompatActivity() {
         .build()
 
     val fileApiService = retrofit.create(FileApiService::class.java)
-    // 수정 필요 -> SHA256 값
-    val id = "7e876b68b2daab2eb3641d348de32f15"
-    val myapiKey = "71dc70f9b22a6069d44e4481072fcb5b210ed428d67ae915da4668d06ce77a52"
 
-    // ApiData.kt 연결
-    val FilePostresponse = fileApiService.postData(id,myapiKey)
+    val myapiKey = "71dc70f9b22a6069d44e4481072fcb5b210ed428d67ae915da4668d06ce77a52"
 
     private lateinit var binding: ActivityRestApiBinding
     lateinit var listAdapter: MyAdapter
@@ -42,23 +42,36 @@ class RestApiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRestApiBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setSupportActionBar(binding.toolbar)	//툴바 사용 설정
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)	//왼쪽 버튼 사용설정(기본은 뒤로가기)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.round_arrow_back_ios_new_24)	//왼쪽 버튼 메뉴로 아이콘 변경
         supportActionBar!!.setDisplayShowTitleEnabled(true)		//타이틀 보이게 설정
+        lifecycleScope.launch {
+            delay(30000) // 30초 대기
 
-        //fileInitList()
-        //Thread.sleep(30000) // 1분 대기 60000
-        Toast.makeText(applicationContext, "스캔 시작 1분 대기", Toast.LENGTH_LONG).show()
+            loadData(intent.getStringExtra("md5").toString())
+            binding.loadingtxt.visibility = View.GONE
+        }
 
         // 어댑터 초기화
         listAdapter = MyAdapter()
         binding.recycler01.layoutManager = LinearLayoutManager(this)
         binding.recycler01.adapter = listAdapter
 
-        loadData() // 데이터를 불러오는 함수 호출
+        // home 버튼
+        binding.btnHome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        // app list 버튼
+        binding.btnApplist.setOnClickListener {
+            val intent = Intent(this, AppAllListActivity::class.java)
+            startActivity(intent)
+        }
+
     }
-    private fun loadData() {
+    private fun loadData(id : String) {
         fileApiService.postData(id, myapiKey).enqueue(object : Callback<FileAnalysisData> {
             override fun onResponse(call: Call<FileAnalysisData>, response: Response<FileAnalysisData>) {
                 if (response.isSuccessful) {
@@ -80,28 +93,7 @@ class RestApiActivity : AppCompatActivity() {
             }
         })
     }
-    private fun fileInitList() {
-        FilePostresponse.enqueue(object : Callback<FileAnalysisData> {
-            override fun onResponse(call: Call<FileAnalysisData>, response: Response<FileAnalysisData>) {
-                if (response.isSuccessful) {
-                    response.body()?.let { data ->
-                        Log.d("OK", data.toString())
-                        fileList = listOf(data) // 성공한 경우 fileList 업데이트
-                        listAdapter.setList(fileList)
-                    }
-                } else {
-                    Log.d("ERROR", response.toString())
-                    Toast.makeText(applicationContext, "API 호출 실패", Toast.LENGTH_LONG).show()
-                }
-            }
 
-            override fun onFailure(call: Call<FileAnalysisData>, t: Throwable) {
-                Log.d("ERROR", t.toString())
-                Toast.makeText(applicationContext, "API 호출 실패2", Toast.LENGTH_LONG).show()
-                Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_LONG).show()
-            }
-        })
-    }
     // 툴바 메뉴 버튼을 설정- menu에 있는 item을 연결하는 부분
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.template_toolbar_menu, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정

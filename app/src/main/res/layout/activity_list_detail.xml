@@ -161,22 +161,22 @@
                 android:paddingLeft="24dp" />
 
             <TextView
-                android:id="@+id/and_version"
+                android:id="@+id/md5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/path"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
-                android:text="@string/req_version"
+                android:text="MD5"
                 android:fontFamily="@font/nanumgothic"
                 android:textColor="@color/blue"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/sdkversion"
+                android:id="@+id/md5Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/and_version"
+                android:layout_below="@+id/md5"
                 android:fontFamily="@font/nanumgothiclight"
                 android:textColor="@color/black"
                 android:paddingLeft="24dp" />
@@ -185,7 +185,7 @@
                 android:id="@+id/installed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/sdkversion"
+                android:layout_below="@+id/md5Label"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/installed"

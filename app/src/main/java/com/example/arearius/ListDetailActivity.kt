@@ -1,5 +1,6 @@
 package com.example.arearius
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.FeatureInfo
@@ -8,11 +9,15 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arearius.data.AppData
 import com.example.arearius.databinding.ActivityListDetailBinding
+import java.io.File
+import java.security.MessageDigest
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,12 +42,15 @@ class ListDetailActivity : AppCompatActivity() {
         PI = appData.packageInfo
 
         setValues()
-
         // 버튼 클릭시 액티비티 이동
-        binding.btntotal.setOnClickListener {
+        /*binding.btntotal.setOnClickListener {
             val intent = Intent(this, RestApiActivity::class.java)
+            intent.putExtra("md5",getMD5Checksum(File(PI.applicationInfo.sourceDir)))
             startActivity(intent)
-        }
+        }*/
+        val intent = Intent(this, RestApiActivity::class.java)
+        intent.putExtra("md5", getMD5Checksum(File(PI.applicationInfo.sourceDir)))
+        binding.btntotal.setOnClickListener{startActivity(intent)}
     }
 
     private fun setValues() {
@@ -60,8 +68,8 @@ class ListDetailActivity : AppCompatActivity() {
         // version name
         binding.versionName.text = PI.versionName
 
-        // target version
-        binding.sdkversion.text = PI.applicationInfo.targetSdkVersion.toString()
+        //md5
+        binding.md5Label.text = getMD5Checksum(File(PI.applicationInfo.sourceDir))
 
         // path
         binding.path.text = PI.applicationInfo.sourceDir
@@ -78,6 +86,26 @@ class ListDetailActivity : AppCompatActivity() {
         else
             binding.reqPermission.text = "-"
     }
+
+    fun getMD5Checksum(file: File): String {
+        val digest = MessageDigest.getInstance("MD5")
+        val inputStream = file.inputStream()
+
+        val buffer = ByteArray(8192)
+        var read: Int
+        while (inputStream.read(buffer).also { read = it } > 0) {
+            digest.update(buffer, 0, read)
+        }
+
+        val md5sum = digest.digest()
+        val bigInt = StringBuilder(md5sum.size * 2)
+        md5sum.forEach {
+            bigInt.append(String.format("%02x", it))
+        }
+
+        return bigInt.toString()
+    }
+
     private fun setDateFormat(time: Long): String {
         val date = Date(time)
         val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
@@ -89,10 +117,6 @@ class ListDetailActivity : AppCompatActivity() {
         return requestedPermissions?.joinToString(",\n") ?: ""
     }
 
-    // Convert string array to comma separated string
-    private fun getFeatures(reqFeatures: Array<FeatureInfo>?): String {
-        return reqFeatures?.joinToString(",\n") ?: ""
-    }
     // 툴바 메뉴 버튼을 설정- menu에 있는 item을 연결하는 부분
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.template_toolbar_menu, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정

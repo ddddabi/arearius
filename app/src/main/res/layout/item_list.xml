@@ -3,7 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
+        <TextView
+            android:id="@+id/resuldetailttxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumgothic"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/resulttxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resuldetailttxt"
+            android:fontFamily="@font/nanumgothicbold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:textSize="20sp"/>
         <TextView
             android:id="@+id/apk"
             android:layout_width="wrap_content"
@@ -14,6 +30,7 @@
             android:layout_marginTop="24dp"
             android:text="@string/apkname"
             android:fontFamily="@font/nanumgothic"
+            android:textColor="@color/blue"
             android:textStyle="bold" />
 
         <TextView
@@ -22,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/apk"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -33,6 +51,7 @@
             android:layout_marginTop="15dp"
             android:text="@string/package_name"
             android:fontFamily="@font/nanumgothic"
+            android:textColor="@color/blue"
             android:textStyle="bold" />
 
         <TextView
@@ -41,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/pack"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -52,6 +72,7 @@
             android:layout_marginTop="15dp"
             android:text="Size:"
             android:fontFamily="@font/nanumgothic"
+            android:textColor="@color/blue"
             android:textStyle="bold" />
 
         <TextView
@@ -60,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/size"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -70,6 +92,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/nanumgothic"
+            android:textColor="@color/blue"
             android:text="MD5:"
             android:textStyle="bold" />
 
@@ -79,6 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/md5"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -90,6 +114,7 @@
             android:layout_marginTop="15dp"
             android:text="@string/permissions"
             android:fontFamily="@font/nanumgothic"
+            android:textColor="@color/blue"
             android:textStyle="bold" />
 
         <TextView
@@ -97,7 +122,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/permission"
+            android:layout_marginRight="18dp"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -109,6 +136,7 @@
             android:layout_marginLeft="18dp"
             android:text="@string/path_info"
             android:fontFamily="@font/nanumgothic"
+            android:textColor="@color/blue"
             android:textStyle="bold" />
 
         <TextView
@@ -117,6 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/path"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -127,6 +156,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:text="last_analysis_stats:"
+            android:textColor="@color/blue"
             android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
@@ -136,6 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/analysis"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
         <TextView
@@ -146,6 +177,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="15dp"
             android:text="last_submission_date:"
+            android:textColor="@color/blue"
             android:fontFamily="@font/nanumgothic"
             android:textStyle="bold" />
 
@@ -155,6 +187,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/submission"
             android:fontFamily="@font/nanumgothiclight"
+            android:textColor="@color/black"
             android:paddingLeft="24dp" />
 
 </LinearLayout>
