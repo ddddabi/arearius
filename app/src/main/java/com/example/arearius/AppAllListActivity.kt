@@ -6,8 +6,6 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
@@ -24,8 +22,7 @@ class AppAllListActivity : AppCompatActivity(), AdapterView.OnItemClickListener 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAppAllListBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         pm = packageManager
         val packageList = packageManager.getInstalledPackages(PackageManager.GET_PERMISSIONS)
@@ -38,7 +35,7 @@ class AppAllListActivity : AppCompatActivity(), AdapterView.OnItemClickListener 
                 packageList1.add(pi)
             }
         }
-        binding.applist.adapter = ApkAdapter(this, packageList, packageManager)
+        binding.applist.adapter = ApkAdapter(this, packageList1, packageManager)
         binding.applist.onItemClickListener = this
     }
 
