@@ -1,11 +1,14 @@
 package com.example.arearius
 
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.provider.Settings
+import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.arearius.adapter.MyAdapter
@@ -19,6 +22,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import com.example.arearius.data.AppData
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -37,16 +41,40 @@ class RestApiActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRestApiBinding
     lateinit var listAdapter: MyAdapter
     var fileList = listOf<FileAnalysisData>()
+    private lateinit var packI: PackageInfo
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRestApiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 패키지 이름 가져오기
+        val appData = applicationContext as AppData
+        packI = appData.packageInfo
+
+        // 카운트 다운
+        val totalTimeMillis = 30000 // 총 시간 (30초)
+        val intervalMillis = 1000 // 업데이트 간격 (1초)
+
+        val countDownTimer = object : CountDownTimer(totalTimeMillis.toLong(), intervalMillis.toLong()) {
+            override fun onTick(millisUntilFinished: Long) {
+                val secondsRemaining = millisUntilFinished / 1000
+                binding.loadingtxt.text = "결과 로딩중.. : $secondsRemaining 초"
+            }
+
+            override fun onFinish() {
+                binding.loadingtxt.visibility = View.GONE
+            }
+        }
 
         lifecycleScope.launch {
-            delay(30000) // 30초 대기
+            countDownTimer.start()
 
+            // 30초 대기 후 데이터 로드
+            delay(totalTimeMillis.toLong())
+
+            countDownTimer.cancel() // 타이머 취소
             loadData(intent.getStringExtra("md5").toString())
             binding.loadingtxt.visibility = View.GONE
         }
@@ -57,8 +85,9 @@ class RestApiActivity : AppCompatActivity() {
         binding.recycler01.adapter = listAdapter
 
         // home 버튼
-        binding.btnHome.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+        binding.btnSetting.setOnClickListener {
+            val packageName = packI.packageName
+            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
             startActivity(intent)
         }
         // app list 버튼
