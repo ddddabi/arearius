@@ -27,13 +27,3 @@
         android:gravity="center_vertical"
         android:src="@drawable/round_chevron_right_24"/>
 </LinearLayout>
-
-<!--<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/appname"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:paddingTop="5dp"
-        android:paddingLeft="10dp"
-        android:paddingBottom="5dp"
-        android:textStyle="bold" />-->

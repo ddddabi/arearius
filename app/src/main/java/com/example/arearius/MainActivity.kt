@@ -19,9 +19,6 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        setSupportActionBar(binding.toolbar)	//툴바 사용 설정
-        supportActionBar!!.setDisplayShowTitleEnabled(true)		//타이틀 보이게 설정
-
         // app list 화면으로 이동
         binding.menuTwo.setOnClickListener {
 
@@ -32,25 +29,6 @@ class MainActivity : AppCompatActivity() {
             finish() //자기 자신 액티비티 파괴
         }
     }
-    // 툴바 메뉴 버튼을 설정- menu에 있는 item을 연결하는 부분
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.template_toolbar_menu, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
-        return true
-    }
-    //Toolbar 메뉴 클릭 이벤트
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> { //뒤로 가기 버튼
-                finish()
-            }
-            R.id.toolbar_info -> {// 툴팁
-                // 메뉴 창으로 가도록
-                //다음화면으로 이동하기 위한 인텐트 객체 생성
-                val intent = Intent(this, MainMenuActivity::class.java)
-                startActivity(intent)   //intent에 저장되어 있는 엑티비티 쪽으로 이동한다
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
 }
 
