@@ -155,7 +155,7 @@
                 android:right="1dp"
                 android:top="1dp" />
 
-            <solid android:color="#1ACCCCCC" />
+            <solid android:color="@color/pressblue" />
             <corners
                 android:bottomLeftRadius="20dp"
                 android:bottomRightRadius="20dp"
@@ -167,7 +167,7 @@
     <!-- Background -->
     <item>
         <shape>
-            <solid android:color="@android:color/darker_gray" />
+            <solid android:color="@color/pressblue" />
             <corners
                 android:bottomLeftRadius="20dp"
                 android:bottomRightRadius="20dp"

@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Virustotal Result"
+        android:text="MetaDefender Cloud Result"
         android:textColor="@color/blue"
         android:textSize="18sp"
         android:fontFamily="@font/nanumgothicextrabold" />

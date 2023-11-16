@@ -8,41 +8,40 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.provider.Settings
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.arearius.adapter.MyAdapter
-import com.example.arearius.data.FileAnalysisData
-import com.example.arearius.databinding.ActivityRestApiBinding
-import com.example.arearius.interfaces.FileApiService
+import com.example.arearius.adapter.MetaListAdapter
+import com.example.arearius.data.AppData
+import com.example.arearius.data.ScanResult
+import com.example.arearius.databinding.ActivityMetaApiBinding
+import com.example.arearius.interfaces.MetaApiDataHash
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import android.view.View
-import androidx.lifecycle.lifecycleScope
-import com.example.arearius.data.AppData
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class RestApiActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityRestApiBinding
-    lateinit var listAdapter: MyAdapter
-    var fileList = listOf<FileAnalysisData>()
+class MetaApiActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMetaApiBinding
+    lateinit var listAdapter:MetaListAdapter
+    var datalist = listOf<ScanResult>()
     private lateinit var packI: PackageInfo
 
-    // 객체 생성
+    // retrofit
     val retrofit = Retrofit.Builder()
-        .baseUrl("https://www.virustotal.com/")
+        .baseUrl("https://api.metadefender.com/v4/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val fileApiService = retrofit.create(FileApiService::class.java)
-    val myapiKey = "71dc70f9b22a6069d44e4481072fcb5b210ed428d67ae915da4668d06ce77a52"
-
+    val dataHashScan = retrofit.create(MetaApiDataHash::class.java)
+    val myapikey = "f862021e371580ee14f2267b15754ffc"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRestApiBinding.inflate(layoutInflater)
+        binding = ActivityMetaApiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // 패키지 이름 가져오기
@@ -71,13 +70,12 @@ class RestApiActivity : AppCompatActivity() {
             delay(totalTimeMillis.toLong())
 
             countDownTimer.cancel() // 타이머 취소
-            loadData(intent.getStringExtra("md5").toString())
+            loadData(intent.getStringExtra("sha1").toString())
             //loadData("4586bb3102973ea5bf149b0ae719b3f0422b68ac")
             binding.loadingtxt.visibility = View.GONE
         }
-
         // 어댑터 초기화
-        listAdapter = MyAdapter()
+        listAdapter = MetaListAdapter()
         binding.recycler01.layoutManager = LinearLayoutManager(this)
         binding.recycler01.adapter = listAdapter
 
@@ -87,38 +85,34 @@ class RestApiActivity : AppCompatActivity() {
             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
             startActivity(intent)
         }
+
         // app list 버튼
         binding.btnApplist.setOnClickListener {
             val intent = Intent(this, AppAllListActivity::class.java)
             startActivity(intent)
         }
-
     }
-    private fun loadData(id : String) {
-        fileApiService.postData(id, myapiKey).enqueue(object : Callback<FileAnalysisData> {
-            override fun onResponse(call: Call<FileAnalysisData>, response: Response<FileAnalysisData>) {
+
+    private fun loadData(hash: String) {
+        dataHashScan.GetData(hash, myapikey).enqueue(object : Callback<ScanResult> {
+            override fun onResponse(call: Call<ScanResult>, response: Response<ScanResult>) {
                 if (response.isSuccessful) {
                     response.body()?.let { data ->
                         Log.d("OK", data.toString())
-                        fileList = listOf(data)
-                        listAdapter.setList(fileList)
+                        datalist = listOf(data)
+                        listAdapter.setList(datalist)
                     }
                 } else {
                     Log.d("ERROR", response.toString())
-                    Toast.makeText(applicationContext, "API 호출 실패", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, response.toString(), Toast.LENGTH_LONG).show()
                 }
             }
 
-            override fun onFailure(call: Call<FileAnalysisData>, t: Throwable) {
-                Log.d("ERROR", t.toString())
-                Toast.makeText(applicationContext, "API 호출 실패2", Toast.LENGTH_LONG).show()
-                Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_LONG).show()
+            override fun onFailure(call: Call<ScanResult>, t: Throwable) {
+                Log.e("FAILURE", "API 호출 실패", t)
+                Toast.makeText(applicationContext, "API 호출 실패", Toast.LENGTH_LONG).show()
             }
         })
     }
+
 }
-
-
-
-
-

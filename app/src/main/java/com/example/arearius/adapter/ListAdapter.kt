@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arearius.data.FileAnalysisData
-import com.example.arearius.data.PermissionDetail
 import com.example.arearius.databinding.ItemListBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,7 +22,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         val currentData = fileList[position]
         holder.binding.apkLabel.text = currentData.data.attributes.meaningfulName
         holder.binding.packLabel.text = currentData.data.attributes.androguard.Package
-        holder.binding.sizeLabel.text = currentData.data.attributes.size.toString()
+        holder.binding.sizeLabel.text = formatFileSize(currentData.data.attributes.size)
         holder.binding.permissionLabel.text = currentData.data.attributes.androguard.permissionDetails.keys.joinToString(System.lineSeparator())
         holder.binding.md5Label.text = currentData.data.attributes.md5
         holder.binding.analysisLabel.text = formatDate(currentData.data.attributes.lastAnalysisDate)
@@ -52,6 +51,18 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         val parsedDate = Date(date)
         return simpleDateFormat.format(parsedDate)
+    }
+    private fun formatFileSize(sizeInBytes: Int): String {
+        val kiloByte = sizeInBytes / 1024.0
+        val megaByte = kiloByte / 1024.0
+        val gigaByte = megaByte / 1024.0
+
+        return when {
+            gigaByte >= 1.0 -> String.format("%.2f GB", gigaByte)
+            megaByte >= 1.0 -> String.format("%.2f MB", megaByte)
+            kiloByte >= 1.0 -> String.format("%.2f KB", kiloByte)
+            else -> String.format("%d Bytes", sizeInBytes)
+        }
     }
 }
 

@@ -87,12 +87,24 @@ public class ApkAdapter extends BaseAdapter {
         // 앱의 크기를 바이트 단위로 가져오기
         long appSizeInBytes = new File(packageInfo.applicationInfo.sourceDir).length();
 
-        // 바이트를 킬로바이트로 변환하여 문자열로 표시
-        String appSizeInKB = String.format(Locale.getDefault(), "%.2f KB", (float) appSizeInBytes / 1024);
-
         // size_tv에 앱 크기 표시
-        holder.sizeTextView.setText(appSizeInKB);
+        holder.sizeTextView.setText(formatFileSize(appSizeInBytes));
 
         return convertView;
+    }
+    private String formatFileSize(long sizeInBytes) {
+        double kiloByte = sizeInBytes / 1024.0;
+        double megaByte = kiloByte / 1024.0;
+        double gigaByte = megaByte / 1024.0;
+
+        if (gigaByte >= 1.0) {
+            return String.format(Locale.getDefault(), "%.2f GB", gigaByte);
+        } else if (megaByte >= 1.0) {
+            return String.format(Locale.getDefault(), "%.2f MB", megaByte);
+        } else if (kiloByte >= 1.0) {
+            return String.format(Locale.getDefault(), "%.2f KB", kiloByte);
+        } else {
+            return String.format(Locale.getDefault(), "%d Bytes", sizeInBytes);
+        }
     }
 }

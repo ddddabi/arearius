@@ -8,15 +8,29 @@
     tools:context=".MainActivity">
 
     <!--상단 고정-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/ouricon"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/logo"
+            />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="App info"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:fontFamily="@font/nanumgothicbold" />
+        android:text="App Info"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:fontFamily="@font/nanumgothicextrabold" />
     <ImageView
         android:id="@+id/appicon"
         android:layout_width="match_parent"
@@ -172,12 +186,51 @@
                 android:fontFamily="@font/nanumgothiclight"
                 android:textColor="@color/black"
                 android:paddingLeft="24dp" />
+            <TextView
+                android:id="@+id/sha1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/md5Label"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:text="SHA-1"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/sha1Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sha1"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
+                android:paddingLeft="24dp" />
+            <TextView
+                android:id="@+id/sha256"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sha1Label"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:text="SHA-256"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sha256Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sha256"
+                android:fontFamily="@font/nanumgothiclight"
+                android:textColor="@color/black"
+                android:paddingLeft="24dp" />
             <TextView
                 android:id="@+id/installed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/md5Label"
+                android:layout_below="@+id/sha256Label"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/installed"
@@ -232,7 +285,18 @@
             android:layout_margin="10dp"
             android:background="@drawable/button_back"
             android:fontFamily="@font/nanumgothicextrabold"
-            android:text="바이러스토탈 검사" />
+            android:text="VirusTotal"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btnmeta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_back"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:text="MetaDefender Cloud"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 </LinearLayout>

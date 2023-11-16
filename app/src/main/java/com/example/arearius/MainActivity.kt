@@ -19,14 +19,13 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        // app list 화면으로 이동
+        binding.menuOne.setOnClickListener {
+            val intent = Intent(this, AppAllListActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.menuTwo.setOnClickListener {
 
-            //다음화면으로 이동하기 위한 인텐트 객체 생성
-            val intent = Intent(this, AppAllListActivity::class.java)
-
-            startActivity(intent)   //intent에 저장되어 있는 엑티비티 쪽으로 이동한다
-            finish() //자기 자신 액티비티 파괴
         }
     }
 
