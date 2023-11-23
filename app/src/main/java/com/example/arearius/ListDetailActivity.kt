@@ -1,33 +1,14 @@
 package com.example.arearius
 
-import android.content.Context
 import android.content.Intent
-import android.content.pm.ApplicationInfo
-import android.content.pm.FeatureInfo
 import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arearius.data.AppData
 import com.example.arearius.databinding.ActivityListDetailBinding
-import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.hash.Hashing
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
-import org.apache.commons.codec.digest.DigestUtils
 import java.io.File
 import java.io.FileInputStream
-import java.io.IOException
 import java.security.DigestInputStream
-import java.security.NoSuchAlgorithmException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.security.MessageDigest
@@ -117,16 +98,10 @@ class ListDetailActivity : AppCompatActivity() {
             binding.path.text = "-"
 
         // first installation
-        if(PI.firstInstallTime != null)
-            binding.insdate.text = setDateFormat(PI.firstInstallTime)
-        else
-            binding.insdate.text = "-"
+        binding.insdate.text = setDateFormat(PI.firstInstallTime)
 
         // last modified
-        if(PI.lastUpdateTime != null)
-            binding.lastModify.text = setDateFormat(PI.lastUpdateTime)
-        else
-            binding.lastModify.text = "-"
+        binding.lastModify.text = setDateFormat(PI.lastUpdateTime)
 
         // uses-permission
         if (PI.requestedPermissions != null)
