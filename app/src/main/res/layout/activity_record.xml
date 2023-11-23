@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".RecordActivity"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
-
         <ImageView
             android:id="@+id/ouricon"
             android:layout_width="120dp"
@@ -21,13 +21,20 @@
             />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/applist"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="처리 기록"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:fontFamily="@font/nanumgothicextrabold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linear"
-        android:divider="#FFFFFF"
-        android:dividerHeight="0px"
-        android:fontFamily="@font/nanumgothicbold"
-        tools:ignore="NotSibling" />
-</RelativeLayout>
+        android:layout_weight="1" />
+
+</LinearLayout>

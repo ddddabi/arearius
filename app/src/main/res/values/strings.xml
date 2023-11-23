@@ -14,4 +14,23 @@
     <string name="appsize">Physical Size</string>
     <string name="installed">Installed:</string>
     <string name="modified">Last Modified:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="user_setting">사용자 설정</string>
+    <string name="service_noti">서비스 정보</string>
+
+    <!-- User Preferences -->
+    <string name="noti_setting">알림 설정</string>
+    <string name="fontsize_setting">글씨 크기 설정</string>
+
+    <!-- Service Preferences -->
+    <string name="privacy">개인정보 처리방침</string>
+    <string name="using">이용약관</string>
+    <string name="help">도움말</string>
+    <string name="notice">공지사항</string>
+    <string name="question">문의하기/신고하기</string>
 </resources>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/start"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <!--로고-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,6 @@
             android:src="@drawable/logo"
             />
     </LinearLayout>
-    <!--전체-->
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -32,97 +31,50 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
-        <!--용량-->
+
         <LinearLayout
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/shadow">
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="16dp"
-                android:max="100"
-                android:progress="0" />
-
-            <TextView
-                android:id="@+id/totalSpaceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/progressBar"
-                android:layout_marginTop="16dp"
-                android:text="Total Space: "
-                android:textSize="16sp"
-                android:fontFamily="@font/nanumgothicbold"/>
-
-            <TextView
-                android:id="@+id/usedSpaceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/totalSpaceTextView"
-                android:layout_marginTop="8dp"
-                android:text="Used Space: "
-                android:textSize="16sp"
-                android:fontFamily="@font/nanumgothicbold"/>
-
-            <TextView
-                android:id="@+id/freeSpaceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/usedSpaceTextView"
-                android:layout_marginTop="8dp"
-                android:text="Free Space: "
-                android:textSize="16sp"
-                android:fontFamily="@font/nanumgothicbold"/>
-        </LinearLayout>
-        <!--버튼-->
-        <LinearLayout
-            android:layout_width="380dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/menu_one"
-                    android:layout_width="0dp"
-                    android:layout_height="160dp"
-                    android:layout_weight="1"
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
                     android:textSize="17dp"
+                    android:layout_margin="15dp"
                     android:text="검사하기"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
 
                 <Button
                     android:id="@+id/menu_two"
-                    android:layout_width="0dp"
-                    android:layout_height="160dp"
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
                     android:textSize="17dp"
-                    android:layout_weight="1"
+                    android:layout_margin="15dp"
                     android:text="처리 기록"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <Button
 
                     android:id="@+id/menu_three"
-                    android:layout_width="0dp"
-                    android:layout_height="160dp"
-                    android:layout_weight="1"
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
                     android:textSize="17dp"
+                    android:layout_margin="15dp"
                     android:text="마이페이지"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
@@ -130,10 +82,10 @@
                 <Button
 
                     android:id="@+id/menu_four"
-                    android:layout_width="0dp"
-                    android:layout_height="160dp"
-                    android:layout_weight="1"
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
                     android:textSize="17dp"
+                    android:layout_margin="15dp"
                     android:text="설정"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
@@ -141,4 +93,4 @@
         </LinearLayout>
 
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
