@@ -55,25 +55,38 @@ class RestApiActivity : AppCompatActivity() {
 
         val countDownTimer = object : CountDownTimer(totalTimeMillis.toLong(), intervalMillis.toLong()) {
             override fun onTick(millisUntilFinished: Long) {
+                // progressbar
+                val totalTimeSeconds = totalTimeMillis / 1000
                 val secondsRemaining = millisUntilFinished / 1000
-                binding.loadingtxt.text = "결과 로딩중.. : $secondsRemaining 초"
+                val progressPercentage = ((totalTimeSeconds - secondsRemaining) / totalTimeSeconds.toFloat()) * 100
+
+                binding.loadingBar.progress = progressPercentage.toInt()
+
+                // TextView에 남은 시간 표시
+                val minutes = secondsRemaining / 60
+                val seconds = secondsRemaining % 60
+                val timeRemainingText = String.format("%02d:%02d", minutes, seconds)
+                binding.timeRemainingText.text = timeRemainingText
             }
 
             override fun onFinish() {
-                binding.loadingtxt.visibility = View.GONE
+                binding.loadinglayout.visibility = View.GONE
+                binding.loadingBar.visibility = View.GONE
+                binding.timeRemainingText.visibility =View.GONE
             }
         }
 
         lifecycleScope.launch {
             countDownTimer.start()
 
-            // 30초 대기 후 데이터 로드
+            // 대기 후 데이터 로드
             delay(totalTimeMillis.toLong())
-
             countDownTimer.cancel() // 타이머 취소
+
             loadData(intent.getStringExtra("md5").toString())
-            //loadData("4586bb3102973ea5bf149b0ae719b3f0422b68ac")
-            binding.loadingtxt.visibility = View.GONE
+            binding.loadinglayout.visibility = View.GONE
+            binding.loadingBar.visibility = View.GONE
+            binding.timeRemainingText.visibility =View.GONE
         }
 
         // 어댑터 초기화

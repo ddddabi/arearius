@@ -2,6 +2,7 @@ package com.example.arearius
 
 
 import android.content.Intent
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -12,10 +13,6 @@ import com.example.arearius.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
-    private lateinit var progressBar: ProgressBar
-    private lateinit var totalSpaceTextView: TextView
-    private lateinit var usedSpaceTextView: TextView
-    private lateinit var freeSpaceTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -32,25 +29,22 @@ class MainActivity : AppCompatActivity() {
         }
         
         // 용량
-        progressBar = binding.progressBar
-        totalSpaceTextView = findViewById(R.id.totalSpaceTextView)
-        usedSpaceTextView = findViewById(R.id.usedSpaceTextView)
-        freeSpaceTextView = findViewById(R.id.freeSpaceTextView)
-
         val storageInfo = getStorageInfo()
 
         val totalSpace = storageInfo.totalBytes
         val usedSpace = storageInfo.usedBytes
-        val freeSpace = storageInfo.freeBytes
 
         val usedPercentage = (usedSpace.toDouble() / totalSpace.toDouble() * 100).toInt()
 
-        progressBar.max = 100
-        progressBar.progress = usedPercentage
+        binding.progressBar.max = 100
+        binding.progressBar.progress = usedPercentage
+        val paint = Paint()
+        paint.strokeCap = Paint.Cap.ROUND
 
-        totalSpaceTextView.text = formatBytes(totalSpace)
-        usedSpaceTextView.text = formatBytes(usedSpace)
-        freeSpaceTextView.text = formatBytes(freeSpace)
+        binding.percentSpaceTextView.text = usedPercentage.toString()
+
+        binding.totalSpaceTextView.text = formatBytes(totalSpace)
+        binding.usedSpaceTextView.text = formatBytes(usedSpace)
     }
 
     private fun getStorageInfo(): StorageInfo {
@@ -59,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         val freeBytes = stat.availableBytes
         val usedBytes = totalBytes - freeBytes
 
-        return StorageInfo(totalBytes, usedBytes, freeBytes)
+        return StorageInfo(totalBytes, usedBytes)
     }
     private fun formatBytes(bytes: Long): String {
         val unit = 1024
@@ -70,8 +64,7 @@ class MainActivity : AppCompatActivity() {
     }
     data class StorageInfo(
         val totalBytes: Long,
-        val usedBytes: Long,
-        val freeBytes: Long
+        val usedBytes: Long
     )
 }
 

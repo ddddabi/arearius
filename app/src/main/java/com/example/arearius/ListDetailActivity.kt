@@ -41,7 +41,7 @@ class ListDetailActivity : AppCompatActivity() {
 
         val intent2 = Intent(this, MetaApiActivity::class.java)
         if (checksums != null) {
-            //intent2.putExtra("md5", checksums.first)
+            intent2.putExtra("md5", checksums.first)
             intent2.putExtra("sha1", checksums.second)
             //intent2.putExtra("sha256", checksums.third)
         }
