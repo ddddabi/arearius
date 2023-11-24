@@ -1,0 +1,77 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/user_setting">
+
+        <ListPreference
+            app:key="@string/noti_setting"
+            app:entries="@array/sound_setting"
+            app:entryValues="@array/sound_setting"
+            app:title="@string/noti_setting"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="@string/fontsize_setting"
+            app:defaultValue="reply"
+            app:entries="@array/fontsize_setting"
+            app:entryValues="@array/fontsize_setting"
+            app:title="@string/fontsize_setting"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/service_noti">
+
+<!--        <SwitchPreferenceCompat-->
+<!--            app:key="sync"-->
+<!--            app:title="@string/sync_title" />-->
+
+<!--        <SwitchPreferenceCompat-->
+<!--            app:dependency="sync"-->
+<!--            app:key="attachment"-->
+<!--            app:summaryOff="@string/attachment_summary_off"-->
+<!--            app:summaryOn="@string/attachment_summary_on"-->
+<!--            app:title="@string/attachment_title" />-->
+
+<!--        <ListPreference-->
+<!--            app:defaultValue="reply"-->
+<!--            app:entries="@array/reply_entries"-->
+<!--            app:entryValues="@array/reply_values"-->
+<!--            app:key="reply"-->
+<!--            app:title="@string/privacy"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+<!--        <ListPreference-->
+<!--            app:defaultValue="reply"-->
+<!--            app:entries="@array/reply_entries"-->
+<!--            app:entryValues="@array/reply_values"-->
+<!--            app:key="reply"-->
+<!--            app:title="@string/using"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+<!--        <ListPreference-->
+<!--            app:defaultValue="reply"-->
+<!--            app:entries="@array/reply_entries"-->
+<!--            app:entryValues="@array/reply_values"-->
+<!--            app:key="reply"-->
+<!--            app:title="@string/help"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+<!--        <ListPreference-->
+<!--            app:defaultValue="reply"-->
+<!--            app:entries="@array/reply_entries"-->
+<!--            app:entryValues="@array/reply_values"-->
+<!--            app:key="reply"-->
+<!--            app:title="@string/notice"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+<!--        <ListPreference-->
+<!--            app:defaultValue="reply"-->
+<!--            app:entries="@array/reply_entries"-->
+<!--            app:entryValues="@array/reply_values"-->
+<!--            app:key="reply"-->
+<!--            app:title="@string/question"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

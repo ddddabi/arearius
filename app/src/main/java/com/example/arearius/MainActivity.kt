@@ -2,14 +2,17 @@ package com.example.arearius
 
 
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.graphics.drawable.Drawable
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
-import android.os.StatFs
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import com.example.arearius.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -25,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.menuTwo.setOnClickListener {
-
+            val intent = Intent(this, RecordActivity::class.java)
+            startActivity(intent)
         }
         
         // 용량
@@ -41,12 +45,20 @@ class MainActivity : AppCompatActivity() {
         val paint = Paint()
         paint.strokeCap = Paint.Cap.ROUND
 
+        binding.menuThree.setOnClickListener {
+//            val intent = Intent(this, __________________::class.java)
+//            startActivity(intent)
+        }
         binding.percentSpaceTextView.text = usedPercentage.toString()
 
         binding.totalSpaceTextView.text = formatBytes(totalSpace)
         binding.usedSpaceTextView.text = formatBytes(usedSpace)
     }
 
+        binding.menuFour.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     private fun getStorageInfo(): StorageInfo {
         val stat = StatFs(Environment.getDataDirectory().path)
         val totalBytes = stat.totalBytes
@@ -62,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         val pre = "KMGTPE"[exp - 1]
         return String.format("%.1f %sB", bytes / Math.pow(unit.toDouble(), exp.toDouble()), pre)
     }
+
     data class StorageInfo(
         val totalBytes: Long,
         val usedBytes: Long

@@ -17,6 +17,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Arearius">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PrivacyInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FontSizeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_notification"
+            android:theme="@style/Theme.Arearius" />
+        <activity
             android:name=".MetaApiActivity"
             android:exported="false" />
         <activity

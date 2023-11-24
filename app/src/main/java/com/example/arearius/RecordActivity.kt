@@ -3,9 +3,9 @@ package com.example.arearius
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class SettingActivity : AppCompatActivity() {
+class RecordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
+        setContentView(R.layout.activity_record)
     }
 }
