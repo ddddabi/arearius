@@ -1,4 +1,5 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory app:title="@string/user_setting">
 
@@ -11,7 +12,6 @@
 
         <ListPreference
             app:key="@string/fontsize_setting"
-            app:defaultValue="reply"
             app:entries="@array/fontsize_setting"
             app:entryValues="@array/fontsize_setting"
             app:title="@string/fontsize_setting"
@@ -32,45 +32,45 @@
 <!--            app:summaryOn="@string/attachment_summary_on"-->
 <!--            app:title="@string/attachment_title" />-->
 
-<!--        <ListPreference-->
-<!--            app:defaultValue="reply"-->
-<!--            app:entries="@array/reply_entries"-->
-<!--            app:entryValues="@array/reply_values"-->
-<!--            app:key="reply"-->
-<!--            app:title="@string/privacy"-->
-<!--            app:useSimpleSummaryProvider="true" />-->
+        <Preference
+            app:title="@string/privacy"
+            app:useSimpleSummaryProvider="true">
+            <intent
+                android:action=""
+                android:targetClass="com.example.arearius.PrivacyActivity"/>
+        </Preference>
 
-<!--        <ListPreference-->
-<!--            app:defaultValue="reply"-->
-<!--            app:entries="@array/reply_entries"-->
-<!--            app:entryValues="@array/reply_values"-->
-<!--            app:key="reply"-->
-<!--            app:title="@string/using"-->
-<!--            app:useSimpleSummaryProvider="true" />-->
+        <Preference
+            app:title="@string/using"
+            app:useSimpleSummaryProvider="true">
+            <intent
+                android:action=""
+                android:targetClass="com.example.arearius.UsingActivity"/>
+        </Preference>
 
-<!--        <ListPreference-->
-<!--            app:defaultValue="reply"-->
-<!--            app:entries="@array/reply_entries"-->
-<!--            app:entryValues="@array/reply_values"-->
-<!--            app:key="reply"-->
-<!--            app:title="@string/help"-->
-<!--            app:useSimpleSummaryProvider="true" />-->
+        <Preference
+            app:title="@string/help"
+            app:useSimpleSummaryProvider="true">
+            <intent
+                android:action=""
+                android:targetClass="com.example.arearius.HelpActivity"/>
+        </Preference>
 
-<!--        <ListPreference-->
-<!--            app:defaultValue="reply"-->
-<!--            app:entries="@array/reply_entries"-->
-<!--            app:entryValues="@array/reply_values"-->
-<!--            app:key="reply"-->
-<!--            app:title="@string/notice"-->
-<!--            app:useSimpleSummaryProvider="true" />-->
+        <Preference
+            app:title="@string/notice"
+            app:useSimpleSummaryProvider="true">
+            <intent
+                android:action=""
+                android:targetClass="com.example.arearius.NoticeActivity"/>
+        </Preference>
 
-<!--        <ListPreference-->
-<!--            app:defaultValue="reply"-->
-<!--            app:entries="@array/reply_entries"-->
-<!--            app:entryValues="@array/reply_values"-->
-<!--            app:key="reply"-->
-<!--            app:title="@string/question"-->
-<!--            app:useSimpleSummaryProvider="true" />-->
+        <Preference
+            app:title="@string/question"
+            app:useSimpleSummaryProvider="true">
+            <intent
+                android:action="example.arearius.action.QUESTION"
+                android:targetClass="com.example.arearius.QuestionActivity"/>
+        </Preference>
 
     </PreferenceCategory>
 

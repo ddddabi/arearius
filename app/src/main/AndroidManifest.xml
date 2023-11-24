@@ -17,14 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Arearius">
         <activity
-            android:name=".SettingsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_settings" />
-        <activity
-            android:name=".SettingActivity"
+            android:name=".PrivacyActivity"
             android:exported="false" />
         <activity
-            android:name=".RecordActivity"
+            android:name=".UsingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
             android:exported="false" />
         <activity
             android:name=".QuestionActivity"
@@ -33,7 +32,14 @@
             android:name=".NoticeActivity"
             android:exported="false" />
         <activity
-            android:name=".HelpActivity"
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecordActivity"
             android:exported="false" />
         <activity
             android:name=".PrivacyInformationActivity"
