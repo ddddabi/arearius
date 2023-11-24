@@ -23,8 +23,6 @@
             />
     </LinearLayout>
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_menu_all"
         android:src="@drawable/start"
         android:layout_width="match_parent"
@@ -32,51 +30,68 @@
         android:gravity="center"
         android:orientation="vertical">
         <!--용량-->
+
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginBottom="30dp"
             android:background="@drawable/shadow">
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="300dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="16dp"
-                android:max="100"
-                android:progress="0" />
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/totalSpaceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/progressBar"
-                android:layout_marginTop="16dp"
-                android:text="Total Space: "
-                android:textSize="16sp"
-                android:fontFamily="@font/nanumgothicbold"/>
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="50"
+                    android:progressDrawable="@drawable/circular_progress" />
 
-            <TextView
-                android:id="@+id/usedSpaceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/totalSpaceTextView"
-                android:layout_marginTop="8dp"
-                android:text="Used Space: "
-                android:textSize="16sp"
-                android:fontFamily="@font/nanumgothicbold"/>
+                <TextView
+                    android:id="@+id/percentSpaceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:textSize="40sp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanumgothicbold"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/usedSpaceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/totalSpaceTextView"
+                        android:text="2.0GB"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/nanumgothicbold"/>
 
-            <TextView
-                android:id="@+id/freeSpaceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/usedSpaceTextView"
-                android:layout_marginTop="8dp"
-                android:text="Free Space: "
-                android:textSize="16sp"
-                android:fontFamily="@font/nanumgothicbold"/>
+                    <TextView
+                        android:id="@+id/totalSpaceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/usedSpaceTextView"
+                        android:layout_marginTop="8dp"
+                        android:layout_gravity="center"
+                        android:text="5.0GB"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/nanumgothicbold"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
         </LinearLayout>
         <!--버튼-->
         <LinearLayout
@@ -96,6 +111,7 @@
                     android:layout_weight="1"
                     android:textSize="17dp"
                     android:text="검사하기"
+                    android:drawableTop="@drawable/checksize"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
 
@@ -106,6 +122,7 @@
                     android:textSize="17dp"
                     android:layout_weight="1"
                     android:text="처리 기록"
+                    android:drawableTop="@drawable/memosize"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
             </LinearLayout>
@@ -123,6 +140,7 @@
                     android:layout_weight="1"
                     android:textSize="17dp"
                     android:text="마이페이지"
+                    android:drawableTop="@drawable/usersize"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
 
@@ -134,6 +152,7 @@
                     android:layout_weight="1"
                     android:textSize="17dp"
                     android:text="설정"
+                    android:drawableTop="@drawable/settingsize"
                     android:fontFamily="@font/nanumgothicbold"
                     android:background="@drawable/button_back"/>
             </LinearLayout>

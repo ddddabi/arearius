@@ -7,6 +7,8 @@ import android.graphics.drawable.Drawable
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.os.StatFs
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -29,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.menuTwo.setOnClickListener {
             val intent = Intent(this, RecordActivity::class.java)
+            startActivity(intent)
+        }
+        binding.menuFour.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
         
@@ -55,10 +61,7 @@ class MainActivity : AppCompatActivity() {
         binding.usedSpaceTextView.text = formatBytes(usedSpace)
     }
 
-        binding.menuFour.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
-        }
+
     private fun getStorageInfo(): StorageInfo {
         val stat = StatFs(Environment.getDataDirectory().path)
         val totalBytes = stat.totalBytes
