@@ -29,10 +29,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AppAllListActivity::class.java)
             startActivity(intent)
         }
-
         binding.menuTwo.setOnClickListener {
             val intent = Intent(this, RecordActivity::class.java)
             startActivity(intent)
+        }
+        binding.menuThree.setOnClickListener {
+//            val intent = Intent(this, __________________::class.java)
+//            startActivity(intent)
         }
         binding.menuFour.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
@@ -52,12 +55,8 @@ class MainActivity : AppCompatActivity() {
         val paint = Paint()
         paint.strokeCap = Paint.Cap.ROUND
 
-        binding.menuThree.setOnClickListener {
-//            val intent = Intent(this, __________________::class.java)
-//            startActivity(intent)
-        }
-        binding.percentSpaceTextView.text = usedPercentage.toString()
 
+        binding.percentSpaceTextView.text = "$usedPercentage%"
         binding.totalSpaceTextView.text = formatBytes(totalSpace)
         binding.usedSpaceTextView.text = formatBytes(usedSpace)
     }

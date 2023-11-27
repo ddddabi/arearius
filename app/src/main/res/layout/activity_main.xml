@@ -29,17 +29,17 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
-        <!--용량-->
 
+        <!--용량-->
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/shadow">
+            android:layout_marginBottom="30dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_round_press"
                 android:gravity="center">
 
                 <ProgressBar
@@ -59,22 +59,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="50%"
-                    android:textSize="40sp"
-                    android:layout_marginRight="20dp"
-                    android:textColor="@color/black"
+                    android:textSize="35sp"
+                    android:textColor="@color/blue"
                     android:fontFamily="@font/nanumgothicbold"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:layout_weight="1"
                     android:layout_gravity="center">
                     <TextView
                         android:id="@+id/usedSpaceTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/totalSpaceTextView"
+                        android:layout_gravity="center"
                         android:text="2.0GB"
                         android:textSize="20sp"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/nanumgothicbold"/>
 
                     <TextView
@@ -93,6 +95,7 @@
 
 
         </LinearLayout>
+
         <!--버튼-->
         <LinearLayout
             android:layout_width="380dp"

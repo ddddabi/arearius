@@ -3,7 +3,7 @@
     <item android:id="@android:id/background">
         <shape
             android:innerRadiusRatio="2.71"
-            android:thicknessRatio="15"
+            android:thicknessRatio="10"
         android:shape="ring"
         android:useLevel="false"
         android:type="sweep">
@@ -17,7 +17,7 @@
     android:toDegrees="270">
     <shape
         android:innerRadiusRatio="2.71"
-        android:thicknessRatio="15"
+        android:thicknessRatio="10"
         android:shape="ring"
         android:angle="0"
         android:type="sweep">
