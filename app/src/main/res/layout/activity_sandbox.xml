@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--상단 고정-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+        <ImageView
+            android:id="@+id/ouricon"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/logo" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Sandbox Info"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:fontFamily="@font/nanumgothicextrabold" />
+
+    </LinearLayout>
+
+    <!--스크롤 뷰-->
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <LinearLayout
+                android:id="@+id/detail1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/pairingip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Emulator Pairing IP"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/pairingipLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/apk"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/blue"
+                    android:hint="ex) 192.168.0.0"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/detail2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail1"
+                android:orientation="vertical"
+                android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/pairingport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Emulator Pairing Port"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/pairingportLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pack_name"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/blue"
+                    android:hint="ex) 172:43805"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/detail3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail2"
+                android:orientation="vertical"
+                android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Wi-Fi Pairing Code"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/version_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/version"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/blue"
+                    android:hint="ex) 118864"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/detail4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail3"
+                android:orientation="vertical"
+                android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/permissions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Emulator IP"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/req_permission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/permissions"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/blue"
+                    android:hint="ex) 192.168.1.2"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/detail5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail4"
+                android:orientation="vertical"
+                android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/path_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Emulator Port"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
+
+                <EditText
+                    android:id="@+id/path"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/path_info"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/blue"
+                    android:hint="ex) 172:43805"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnsend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_back"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:text="Sandbox 데이터 전송"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btnsend2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_back"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:text="Sandbox 추가 데이터 전송"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+
+    <!--하단 고정-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btndetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_back"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:text="App Detail"
+            android:textAllCaps="false"/>
+        <ImageView
+            android:id="@+id/btnhome"
+            android:layout_width="10dp"
+            android:layout_height="53dp"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"
+            android:background="@drawable/homesize"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/btnlist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_back"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:text="App List"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+</LinearLayout>
+
+

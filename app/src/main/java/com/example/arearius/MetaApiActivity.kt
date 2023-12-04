@@ -98,7 +98,11 @@ class MetaApiActivity : AppCompatActivity() {
             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
             startActivity(intent)
         }
-
+        // home 버튼
+        binding.btnhome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         // app list 버튼
         binding.btnApplist.setOnClickListener {
             val intent = Intent(this, AppAllListActivity::class.java)

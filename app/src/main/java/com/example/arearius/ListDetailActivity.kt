@@ -34,18 +34,26 @@ class ListDetailActivity : AppCompatActivity() {
         val intent = Intent(this, RestApiActivity::class.java)
         if (checksums != null) {
             intent.putExtra("md5", checksums.first)
-            //intent.putExtra("sha1", checksums.second)
+            intent.putExtra("appname",packageManager.getApplicationLabel(PI.applicationInfo) )
             //intent.putExtra("sha256", checksums.third)
         }
         binding.btntotal.setOnClickListener { startActivity(intent) }
 
-        val intent2 = Intent(this, MetaApiActivity::class.java)
-        if (checksums != null) {
+
+        /*if (checksums != null) {
             intent2.putExtra("md5", checksums.first)
             intent2.putExtra("sha1", checksums.second)
             //intent2.putExtra("sha256", checksums.third)
+        }*/
+        binding.btnsandbox.setOnClickListener {
+            val intent2 = Intent(this, SandboxActivity::class.java)
+            startActivity(intent2)
         }
-        binding.btnmeta.setOnClickListener { startActivity(intent2) }
+        // home 버튼
+        binding.btnhome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setValues() {

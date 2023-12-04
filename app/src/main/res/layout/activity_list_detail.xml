@@ -381,8 +381,17 @@
             android:fontFamily="@font/nanumgothicextrabold"
             android:text="VirusTotal"
             android:textAllCaps="false"/>
+        <ImageView
+            android:id="@+id/btnhome"
+            android:layout_width="10dp"
+            android:layout_height="53dp"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"
+            android:background="@drawable/homesize"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:textAllCaps="false"/>
         <Button
-            android:id="@+id/btnmeta"
+            android:id="@+id/btnsandbox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

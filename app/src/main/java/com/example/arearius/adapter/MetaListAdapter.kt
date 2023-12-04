@@ -36,9 +36,6 @@ class MetaListAdapter : RecyclerView.Adapter<MetaListAdapter.MyViewHolder>(){
         holder.binding.sizeLabel.text = formatFileSize(currentData.fileInfo.fileSize)
         holder.binding.md5Label.text = currentData.fileInfo.md5
         holder.binding.permissionLabel.visibility = View.GONE
-        holder.binding.pathLabel.visibility = View.GONE
-        holder.binding.analysisLabel.visibility = View.GONE
-        holder.binding.submissionLabel.text = formatTimestamp(currentData.fileInfo.uploadTimestamp)
         holder.binding.resuldetailttxt.text = currentData.scanResults.totalDetectedAvs.toString() + " / " + currentData.scanResults.totalAvs.toString()
 
         if(currentData.scanResults.totalDetectedAvs > 5){

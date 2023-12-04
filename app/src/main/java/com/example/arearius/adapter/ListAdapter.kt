@@ -1,16 +1,20 @@
 package com.example.arearius.adapter
 
+import android.R
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.arearius.data.FileAnalysisData
 import com.example.arearius.databinding.ItemListBinding
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
+
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     private var fileList: List<FileAnalysisData> = emptyList()
-
     inner class MyViewHolder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -20,21 +24,52 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentData = fileList[position]
+        val intent = (holder.itemView.context as? Activity)?.intent
+        val appNameExtra = intent?.getStringExtra("appname")
+        if (appNameExtra != null) {
+            holder.binding.appname.text = appNameExtra
+        } else {
+            holder.binding.appname.text = currentData.data.attributes.meaningfulName
+        }
         holder.binding.apkLabel.text = currentData.data.attributes.meaningfulName
         holder.binding.packLabel.text = currentData.data.attributes.androguard.Package
         holder.binding.sizeLabel.text = formatFileSize(currentData.data.attributes.size)
         holder.binding.permissionLabel.text = currentData.data.attributes.androguard.permissionDetails.keys.joinToString(System.lineSeparator())
         holder.binding.md5Label.text = currentData.data.attributes.md5
-        holder.binding.analysisLabel.text = formatDate(currentData.data.attributes.lastAnalysisDate)
-        holder.binding.submissionLabel.text = formatDate(currentData.data.attributes.lastSubmissionDate)
+        holder.binding.sha1Label.text = currentData.data.attributes.sha1
+        holder.binding.sha256Label.text = currentData.data.attributes.sha256
         holder.binding.resuldetailttxt.text = (currentData.data.attributes.lastAnalysisStats.harmless + currentData.data.attributes.lastAnalysisStats.malicious).toString() +
-                " / " + currentData.data.attributes.lastAnalysisStats.undetected.toString()
+                " / " + (currentData.data.attributes.lastAnalysisStats.malicious +currentData.data.attributes.lastAnalysisStats.harmless +currentData.data.attributes.lastAnalysisStats.suspicious +currentData.data.attributes.lastAnalysisStats.undetected).toString()
+        val totalSum = currentData.data.attributes.lastAnalysisStats.malicious +
+                currentData.data.attributes.lastAnalysisStats.harmless +
+                currentData.data.attributes.lastAnalysisStats.suspicious +
+                currentData.data.attributes.lastAnalysisStats.undetected
 
-        if(currentData.data.attributes.lastAnalysisStats.harmless + currentData.data.attributes.lastAnalysisStats.malicious > 5){
+        val maliciousHarmlessSum = currentData.data.attributes.lastAnalysisStats.malicious +
+                currentData.data.attributes.lastAnalysisStats.harmless
+
+        if (maliciousHarmlessSum > 5) {
             holder.binding.resulttxt.text = "악성"
-        }else{
+            holder.binding.resulttxt.setTextColor(
+                ContextCompat.getColor(holder.itemView.context, com.example.arearius.R.color.red)
+            )
+            holder.binding.resultBar.progress = (maliciousHarmlessSum.toFloat() / totalSum * 100).toInt()
+            /*holder.binding.resultBar.progressDrawable =
+                ContextCompat.getDrawable(holder.itemView.context, com.example.arearius.R.drawable.circular_progress)*/
+        } else {
             holder.binding.resulttxt.text = "정상"
+            holder.binding.resulttxt.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    com.example.arearius.R.color.green
+                )
+            )
+            holder.binding.resultBar.progressDrawable = ContextCompat.getDrawable(
+                holder.itemView.context,
+                com.example.arearius.R.drawable.circular_progress_normal
+            )
         }
+
     }
 
 

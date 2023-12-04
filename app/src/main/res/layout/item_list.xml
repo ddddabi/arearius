@@ -1,194 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/resuldetailttxt"
+        <!--결과 출력-->
+        <LinearLayout
+            android:id="@+id/loadinglayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumgothic"
             android:gravity="center"
-            android:paddingTop="10dp"
-            android:textSize="20sp"/>
-        <TextView
-            android:id="@+id/resulttxt"
+            android:background="@drawable/button_round_press"
+            android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/resultBar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="50"
+                    android:progressDrawable="@drawable/circular_progress"
+                    tools:ignore="Suspicious0dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/resulttxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumgothicextrabold"
+                            android:paddingTop="5dp"
+                            android:textSize="15sp"/>
+                        <TextView
+                            android:id="@+id/resuldetailttxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumgothicbold"
+                            android:paddingTop="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+
+                        <TextView
+                            android:id="@+id/appname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumgothic"
+                            android:paddingTop="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/apk_document" />
+        </LinearLayout>
+
+        <!--스크롤뷰-->
+        <LinearLayout
+            android:id="@+id/detail1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/resuldetailttxt"
-            android:fontFamily="@font/nanumgothicbold"
-            android:gravity="center"
-            android:paddingTop="10dp"
-            android:textSize="20sp"/>
-        <TextView
-            android:id="@+id/apk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/apkname"
-            android:fontFamily="@font/nanumgothic"
-            android:textColor="@color/blue"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/apk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/apkname"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
 
-        <TextView
-            android:id="@+id/apkLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/apk"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
+                <TextView
+                    android:id="@+id/apkLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/apk"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/pack"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/detail2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/apkLabel"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/package_name"
-            android:fontFamily="@font/nanumgothic"
-            android:textColor="@color/blue"
-            android:textStyle="bold" />
+            android:layout_below="@+id/detail1"
+            android:orientation="vertical"
+            android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/pack_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/package_name"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
 
-        <TextView
-            android:id="@+id/packLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/pack"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
+                <TextView
+                    android:id="@+id/packLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pack_name"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/packLabel"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="15dp"
-            android:text="Size:"
-            android:fontFamily="@font/nanumgothic"
-            android:textColor="@color/blue"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/sizeLabel"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/detail3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/size"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
+            android:layout_below="@+id/detail2"
+            android:orientation="vertical"
+            android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/packLabel"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Size:"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
 
-        <TextView
-            android:id="@+id/md5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sizeLabel"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/nanumgothic"
-            android:textColor="@color/blue"
-            android:text="MD5:"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/sizeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/size"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/md5Label"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/detail4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/md5"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
+            android:layout_below="@+id/detail3"
+            android:orientation="vertical"
+            android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/permissions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Permissions:"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
 
-        <TextView
-            android:id="@+id/permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/md5Label"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/permissions"
-            android:fontFamily="@font/nanumgothic"
-            android:textColor="@color/blue"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/permissionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/permissions"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/permissionLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/permission"
-            android:layout_marginRight="18dp"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/path"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/permissionLabel"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="18dp"
-            android:text="@string/path_info"
-            android:fontFamily="@font/nanumgothic"
-            android:textColor="@color/blue"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/pathLabel"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/detail5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/path"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
+            android:layout_below="@+id/detail4"
+            android:orientation="vertical"
+            android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/md5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="MD5"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue"/>
 
-        <TextView
-            android:id="@+id/analysis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/pathLabel"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="15dp"
-            android:text="last_analysis_stats:"
-            android:textColor="@color/blue"
-            android:fontFamily="@font/nanumgothic"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/md5Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/md5"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/analysisLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/analysis"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
 
-        <TextView
-            android:id="@+id/submission"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/detail6"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/analysisLabel"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="15dp"
-            android:text="last_submission_date:"
-            android:textColor="@color/blue"
-            android:fontFamily="@font/nanumgothic"
-            android:textStyle="bold" />
+            android:layout_below="@+id/detail5"
+            android:orientation="vertical"
+            android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/sha1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="SHA-1"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
 
-        <TextView
-            android:id="@+id/submissionLabel"
-            android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/sha1Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sha1"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/detail7"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/submission"
-            android:fontFamily="@font/nanumgothiclight"
-            android:textColor="@color/black"
-            android:paddingLeft="24dp" />
+            android:layout_below="@+id/detail6"
+            android:orientation="vertical"
+            android:background="@drawable/button_back">
+                <TextView
+                    android:id="@+id/sha256"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:text="SHA-256"
+                    android:fontFamily="@font/nanumgothicbold"
+                    android:textColor="@color/blue" />
+
+                <TextView
+                    android:id="@+id/sha256Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sha256"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nanumgothic"
+                    android:textColor="@color/black" />
+        </LinearLayout>
 
 </LinearLayout>

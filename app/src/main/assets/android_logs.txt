@@ -1,0 +1,74 @@
+--------- beginning of system
+11-23 21:18:07.313  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.112  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.119  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.133  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.515  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.530  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.545  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.562  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.578  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.589  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.858  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.866  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.882  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.898  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.912  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:14.929  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+--------- beginning of main
+11-23 21:19:40.601  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:19:46.403  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:46.403  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:19:48.396  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:19:48.489  8564  8564 D OpenVpnApi: startVpnInternal: ==============de.blinkt.openvpn.core.ConfigParser@f078b46
+11-23 21:19:48.489  8564  8564 D OpenVpnApi: converted Profile
+11-23 21:19:48.527  8564  8573 W System  : A resource failed to call close.
+11-23 21:19:49.503  8564  9644 I OpenVPN : OpenVPN process exited
+11-23 21:19:50.501  8564  8564 I Thread-4: type=1400 audit(0.0:1093): avc: denied { unlink } for name="mgmtsocket" dev="tmpfs" ino=5841 scontext=u:r:platform_app:s0:c512,c768 tcontext=u:object_r:app_data_file:s0:c512,c768 tclass=sock_file permissive=1 app=com.example.vpnner
+11-23 21:19:50.501  8564  8564 I Thread-4: type=1400 audit(0.0:1094): avc: denied { create } for name="mgmtsocket" scontext=u:r:platform_app:s0:c512,c768 tcontext=u:object_r:app_data_file:s0:c512,c768 tclass=sock_file permissive=1 app=com.example.vpnner
+11-23 21:19:50.504  8564  8971 I OpenVPN : Starting openvpn
+11-23 21:19:56.399  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:04.091  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:11.729  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:11.752  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:11.766  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:13.034  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:13.050  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:14.569  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:14.578  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:14.593  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:19.443  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:20.191  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:20.475  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:21.472  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:21.503  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:27.203  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:34.943  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:42.495  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:42.533  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:42.791  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:50.639  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:20:55.497  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:20:56.502  8564  8571 I .example.vpnne: Background concurrent copying GC freed 5784(354KB) AllocSpace objects, 115(2300KB) LOS objects, 49% free, 3333KB/6666KB, paused 154us,118us total 274.361ms
+11-23 21:20:58.474  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:21:00.960  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:00.972  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:00.987  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:01.031  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:01.063  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:01.077  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:01.154  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:01.292  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:03.974  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.105  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.120  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.133  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.152  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.163  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.185  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.223  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.254  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.333  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:06.345  8564  8564 D ViewRootImpl[MainActivity]: updatePointerIcon called with position out of bounds
+11-23 21:21:09.886  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session
+11-23 21:21:17.799  8564  8847 E Send Session Fail: : http://cdsa.xyz/Api/Session

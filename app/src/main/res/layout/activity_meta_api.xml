@@ -77,6 +77,15 @@
             android:background="@drawable/button_back"
             android:fontFamily="@font/nanumgothicextrabold"
             android:text="설정 앱으로" />
+        <ImageView
+            android:id="@+id/btnhome"
+            android:layout_width="10dp"
+            android:layout_height="53dp"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"
+            android:background="@drawable/homesize"
+            android:fontFamily="@font/nanumgothicextrabold"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btn_applist"

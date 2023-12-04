@@ -30,7 +30,6 @@ class RestApiActivity : AppCompatActivity() {
     lateinit var listAdapter: MyAdapter
     var fileList = listOf<FileAnalysisData>()
     private lateinit var packI: PackageInfo
-
     // 객체 생성
     val retrofit = Retrofit.Builder()
         .baseUrl("https://www.virustotal.com/")
@@ -103,6 +102,11 @@ class RestApiActivity : AppCompatActivity() {
         // app list 버튼
         binding.btnApplist.setOnClickListener {
             val intent = Intent(this, AppAllListActivity::class.java)
+            startActivity(intent)
+        }
+        // home 버튼
+        binding.btnhome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
